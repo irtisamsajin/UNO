@@ -2,17 +2,16 @@
 function App() {
 
   async function handleSubmit(){
-    const URL = import.meta.env.VITE_SERVER_URL;
-    console.log(URL)
-    const data={
-      name: "Unknown"
-    }
+    const URL = import.meta.env.VITE_SERVER_URL+"/newGame";
+    console.log(URL);
     await fetch(URL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify({
+        adminUser: "New Admin"
+      })
     })
   }
 
