@@ -1,10 +1,9 @@
 const express=require('express');
 const {createRoom} = require('../Helpers/room');
 
-const router=express.Router();
+function newGame(req,res,next){
+    req.body.roomCode=createRoom();
+    next();
+}
 
-router.post("/",(req,res) => {
-    createRoom(req.body.adminUser);
-})
-
-module.exports=router;
+module.exports=newGame;
