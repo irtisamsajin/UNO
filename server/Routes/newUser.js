@@ -27,7 +27,7 @@ router.post("/",(req,res) => {
     saveRooms(rooms);
     const token=getToken({
         roomCode: roomCode,
-        admin: admin,
+        admin: admin, //boolean
         username: username
     })
     res.status(200).json({
